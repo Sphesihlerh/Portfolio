@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hide Information Button</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .info {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: none;
+    }
+    .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 48%;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .section-heading {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .subsection-heading {
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .hidden {
+            display: none;
+        }
+        .selected {
+        background-color: lightblue;
+    }
+        #businessNameTable th:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        width: 150px; /* Adjust width as needed */
+    }
+
+    #businessNameTable th.business-name {
+        height: 20px; /* Adjust height as needed */
+        text-align: center; /* Align text to the center */
+    }
+
+</style>
+
+
+</head>
+<body>
+<button id="hideButton">1. CUSTOMER DETAILS</button>
+<div id="hidden-info">
+<!-- Your hidden information goes here -->
+This Trade Term Agreement is representative of the customer and banners reflected below: <br><br>
+ 
+<table>
+    <tr>
+        <th>Customer</th>
+        <th>Business Name</th>
+    </tr>
+
+</table>
+</div>
+ 
+ <!-- <script>
+    const hideButton = document.getElementById('hideButton');
+    const hiddenInfo = document.getElementById('hidden-info');
+ 
+    hideButton.addEventListener('click', function() {
+      if (hiddenInfo.style.display === 'none') {
+        hiddenInfo.style.display = 'block';
+        hideButton.textContent = 'CUSTOMER DETAILS';
+      } else {
+        hiddenInfo.style.display = 'none';
+        hideButton.textContent = 'CUSTOMER DETAILS';
+      }
+    });
+</script>
+-->
+<br><br>
+
+<button id="toggleButton">2. AGREEMENT SCOPE</button>
+<div id="confidentialInfo">
+<!-- Your hidden information goes here -->
+<div class="section-heading">2.1 The Term</div>
+    <div class="subsection-heading">Subject to the other provisions of this Agreement, this Agreement is for 12 months and shall be deemed to have commenced on 1st October 2023 and shall expire on 30th September 2024 (the "Term").</div>
+
+    <div class="section-heading">2.2 The Business Units</div>
+    <div class="subsection-heading">The following Tiger’s Business Units (the “BU’s”) fall within the scope of this agreement:</div>
+
+    
+    <table id="businessUnitTable">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Business Unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="businessUnitRow">
+                <td>1</td>
+                <td>Culinary</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>2</td>
+                <td>Snacks & Treats</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>3</td>
+                <td>Beverages</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>4</td>
+                <td>Home & Personal Care (HPC)</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>5</td>
+                <td>Baby Nutrition (Purity)</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="businessUnitRow">
+                <td>6</td>
+                <td>Baby Wellbeing</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>7</td>
+                <td>King Foods</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>8</td>
+                <td>Cereals (Jungle/Simply Cereal)</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>9</td>
+                <td>Maize</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>10</td>
+                <td>Wheat</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>11</td>
+                <td>Rice (Tastic, AC & Cresta)</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>12</td>
+                <td>Pasta</td>
+            </tr>
+            <tr class="businessUnitRow">
+                <td>13</td>
+                <td>Bread (Albany)</td>
+            </tr>
+        </tbody>
+ </table>
+    <button id="showSelectedBtn">Show Selected</button>
+
+    <div class="section-heading">2.3 Base Volume and NSV for -1 October 2022 to 30 September 2023</div>
+    <div class="subsection-heading">Herewith the estimated base volumes and net sales values for the period 1 October 2022 to 30 September 2023. The below figures may change and may need to be verified and confirmed.</div>
+
+    <table id="businessNameTable">
+        <thead>
+            <tr>
+                
+                <th class="business-name" colspan="7">Business Name</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>NIS F21</th>
+                <th>NIS F22</th>
+                <th>% Change</th>
+                <th>Vol F21</th>
+                <th>Vol F22</th>
+                <th>% Change</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="categoryRow">
+                <td><b>Total Groceries</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                
+            </tr>
+            <tr class="categoryRow">
+                
+                <td>Culinary</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                
+            </tr>
+            <tr class="categoryRow">
+            
+                <td>Snacks & Treats</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+                
+                <td>Beverages</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+                <td><b>THPCB</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                
+            </tr>
+        
+            <tr class="categoryRow">
+                
+                <td>Home & Personal Care (HPC)</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+               
+                <td>Baby Nutrition (Purity)</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+               
+                <td>Baby Wellbeing</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+                <td><b>Total Grains</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                
+            </tr>
+            <tr class="categoryRow">
+               <td>King Foods</td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+                
+                <td>Cereals (Jungle/Simply Cereal)</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+                
+                <td>Maize</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+                
+                <td>Wheat</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+                
+                <td>Rice (Tastic, AC & Cresta)</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+                
+                <td>Pasta</td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr class="categoryRow">
+               <td>Bread (Albany) </td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+               <td><input type="text"></td>
+            </tr>
+            <!-- Add more subcategories as needed -->
+            <tr class="categoryRow">
+                <td><b>TOTAL</b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+</div>
+
+
+<script>
+    // Function to show selected business units and corresponding categories
+    const showSelectedBtn = document.getElementById('showSelectedBtn');
+    showSelectedBtn.addEventListener('click', function() {
+        const selectedUnits = document.querySelectorAll('.businessUnitRow.selected');
+        const selectedUnitNames = Array.from(selectedUnits).map(unit => unit.children[1].textContent.trim().toLowerCase());
+        const categoryRows = document.querySelectorAll('.categoryRow');
+        
+        categoryRows.forEach(row => {
+            const categoryName = row.children[0].textContent.trim().toLowerCase();
+            if (
+                selectedUnitNames.includes(categoryName) ||
+                categoryName === 'total' ||
+                (selectedUnitNames.includes('culinary') || selectedUnitNames.includes('snacks & treats') || selectedUnitNames.includes('beverages')) && categoryName === 'total groceries' ||
+                (selectedUnitNames.includes('home & personal care (hpc)') || selectedUnitNames.includes('baby nutrition (purity)') || selectedUnitNames.includes('baby wellbeing')) && categoryName === 'thpcb' ||
+                (selectedUnitNames.includes('king foods') || selectedUnitNames.includes('cereals (jungle/simply cereal)') || selectedUnitNames.includes('maize') || selectedUnitNames.includes('wheat') || selectedUnitNames.includes('pasta and bread (albany)')) && categoryName === 'total grains'
+            ) {
+                row.classList.remove('hidden');
+            } else {
+                row.classList.add('hidden');
+            }
+        });
+
+        // Show corresponding rows in the business name table
+        const businessNameRows = document.querySelectorAll('.business-name');
+        businessNameRows.forEach(row => {
+            const rowName = row.textContent.trim().toLowerCase();
+            if (
+                selectedUnitNames.includes(rowName) ||
+                rowName === 'total' ||
+                (selectedUnitNames.includes('culinary') || selectedUnitNames.includes('snacks & treats') || selectedUnitNames.includes('beverages')) && rowName === 'total groceries' ||
+                (selectedUnitNames.includes('home & personal care (hpc)') || selectedUnitNames.includes('baby nutrition (purity)') || selectedUnitNames.includes('baby wellbeing')) && rowName === 'thpcb' ||
+                (selectedUnitNames.includes('king foods') || selectedUnitNames.includes('cereals (jungle/simply cereal)') || selectedUnitNames.includes('maize') || selectedUnitNames.includes('wheat') || selectedUnitNames.includes('pasta and bread (albany)')) && rowName === 'total grains'
+            ) {
+                row.classList.remove('hidden');
+            } else {
+                row.classList.add('hidden');
+            }
+        });
+    });
+
+    // Toggle selection of business units
+    const businessUnitRows = document.querySelectorAll('.businessUnitRow');
+    businessUnitRows.forEach(row => {
+        row.addEventListener('click', function() {
+            row.classList.toggle('selected');
+        });
+    });
+
+    // Function to toggle the display of additional information sections
+    const toggleButton = document.getElementById('toggleButton');
+    const confidentialInfo = document.getElementById('confidentialInfo');
+    toggleButton.addEventListener('click', function() {
+        if (confidentialInfo.style.display === 'none') {
+            confidentialInfo.style.display = 'block';
+            toggleButton.textContent = 'Hide Agreement Scope'; 
+        } else {
+            confidentialInfo.style.display = 'none';
+            toggleButton.textContent = 'Show Agreement Scope'; 
+        }
+    });
+
+    // Function to toggle the visibility of the customer details section
+    const hideButton = document.getElementById('hideButton');
+    const hiddenInfo = document.getElementById('hidden-info');
+    hideButton.addEventListener('click', function() {
+        if (hiddenInfo.style.display === 'none') {
+            hiddenInfo.style.display = 'block';
+            hideButton.textContent = 'Hide Customer Details';
+        } else {
+            hiddenInfo.style.display = 'none';
+            hideButton.textContent = 'Show Customer Details';
+        }
+    });
+</script>
+
+<br>
+
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var toggleButton = document.getElementById("toggleButton3");
+            var section31 = document.getElementById("section31");
+            var section32 = document.getElementById("section32");
+
+            toggleButton.addEventListener("click", function () {
+                if (section31.style.display === "none" || section31.style.display === "") {
+                    section31.style.display = "block";
+                    section32.style.display = "block";
+                } else {
+                    section31.style.display = "none";
+                    section32.style.display = "none";
+                }
+            });
+        });
+    </script>
+   <!--<script>
+       document.addEventListener("DOMContentLoaded", function () {
+    // Function to handle selection of business units in section 2.1
+    var businessUnitRows = document.querySelectorAll('.businessUnitRow');
+    businessUnitRows.forEach(row => {
+        row.addEventListener('click', function () {
+            var unitId = row.dataset.unitId;
+            var selectedUnit = document.getElementById(unitId);
+
+            // Hide all business unit information initially
+            var allBusinessUnitInfo = document.querySelectorAll('.business-unit-info');
+            allBusinessUnitInfo.forEach(info => {
+                info.style.display = 'none';
+            });
+
+            // Show only the selected business unit information
+            selectedUnit.style.display = 'block';
+
+            // Update the F2022 Rebate table based on the selected units
+            updateRebateTable(unitId);
+
+            // Show the corresponding rebate for the selected unit
+            var selectedRebate = document.getElementById(unitId + '-rebate');
+            selectedRebate.style.display = 'block';
+        });
+    });
+
+    // Function to update the F2022 Rebate table based on selected business units
+    function updateRebateTable(selectedUnitId) {
+        var rebateRows = document.querySelectorAll('.rebateRow');
+        rebateRows.forEach(row => {
+            var unitId = row.dataset.unitId;
+            var rebateValue = getRebateValue(selectedUnitId, unitId);
+            row.querySelector('.rebateValue').textContent = rebateValue + '%';
+        });
+    }
+
+    // Function to get the rebate value for the selected and non-selected units
+    function getRebateValue(selectedUnitId, unitId) {
+        // Define rebate values for each business unit
+        var rebateValues = {
+            'culinary': '4.00%',
+            'snacks-treats': '4.25%',
+            'beverages': '4.25%',
+            'home-personal-care': '4.75%',
+            'baby-nutrition': '3.50%',
+            'baby-wellbeing': '4.75%',
+            'king-foods': '4.00%',
+            'cereals': '4.00%',
+            'maize': '4.50%',
+            'wheat': '4.50%',
+            'rice': '4.50%',
+            'pasta': '4.50%',
+            'bread': '4.50%'
+        };
+
+        // Return the corresponding rebate value
+        if (unitId === selectedUnitId) {
+            return rebateValues[selectedUnitId];
+        } else {
+            return '';
+        }
+    }
+
+    // Toggle display of section 3.1
+    var toggleButton31 = document.getElementById("toggleButton31");
+    var section31 = document.getElementById("section31");
+
+    toggleButton31.addEventListener("click", function () {
+        if (section31.style.display === "none" || section31.style.display === "") {
+            section31.style.display = "block";
+            hideUnselectedBusinessUnits();
+        } else {
+            section31.style.display = "none";
+        }
+    });
+
+    // Function to hide unselected business units in section 3.1
+    function hideUnselectedBusinessUnits() {
+        var selectedBusinessUnits = document.querySelectorAll('.businessUnitRow.selected');
+        var allBusinessUnits = document.querySelectorAll('.businessUnitRow');
+
+        allBusinessUnits.forEach(unit => {
+            var unitId = unit.dataset.unitId;
+            var selected = false;
+            selectedBusinessUnits.forEach(selectedUnit => {
+                if (selectedUnit.dataset.unitId === unitId) {
+                    selected = true;
+                }
+            });
+            if (!selected) {
+                var businessUnitRow = document.getElementById('rebate-' + unitId);
+                businessUnitRow.style.display = 'none';
+            }
+        });
+    }
+});
+
+    </script>
+    -->
+    
+    
+    
+</head>
+<body>
+
+    <button id="toggleButton3">3. BASE and GROWTH REBATE</button>
+    <div id="confidentialInfoWrapper">
+        
+        <div id="section31">
+            <div class="section-heading">3.1 Guaranteed Rebate</div>
+    <table>
+        <tbody>
+        <tr>
+            <td>Definition: </td>
+            <td>An unconditional Business Unit-specific Rebate.</td>
+        </tr>
+        <tr>
+            <td>Type: </td>
+            <td>
+                ☒ Unconditional     
+                ☐ Pay for Performance
+                ☐ V.A.S.
+                ☐ Efficiency
+            </td>
+        </tr>
+        <tr>
+            <td>Payment: </td>
+            <td>
+                ☒ Monthly           ☐ Quarterly               ☐ Annually <br>
+                <b>Note:</b> Payment will be made retrospectively either by EFT or deducted from statement at the end of the month, according to the existing practice.  The existing agreed method to remain for each specific Customer.
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    A <b>Guaranteed Rebate </b>payment will be made from R1 as follows:<br>
+    <table>
+        <tbody>
+        <tr>
+            <td>Business Unit</td>
+            <td>F2022 Rebate</td>
+            <td>Business Unit</td>
+            <td>F2022 Rebate</td>
+        </tr>
+        <tr>
+            <td>1. Culinary</td>
+            <td>4.00%</td>
+            <td>7. King Foods</td>
+            <td>4.00%</td>
+        </tr>
+        <tr>
+            <td>2. Snacks & Treats</td>
+            <td>4.25%</td>
+            <td>8. Cereals (Jungle/Simply Cereal)</td>
+            <td>4.00%</td>
+        </tr>
+        <tr>
+            <td>3. Beverages </td>
+            <td>4.25%</td>
+            <td>9. Maize</td>
+            <td>4.50%</td>
+        </tr>
+        <tr>
+            <td>4. Home & Personal Care (HPC)</td>
+            <td>4.75%</td>
+            <td>10. Wheat</td>
+            <td>4.50%</td>
+        </tr>
+       
+        <tr>
+            <td>5. Baby Wellbeing</td>
+            <td>4.75%</td>
+            <td>11. Rice (Tastic, AC & Cresta)</td>
+            <td>4.50%</td>
+        </tr>
+        <tr>
+            <td>6. Baby Nutrition (Purity)</td>
+            <td>3.50%</td>
+            <td>12. Pasta</td>
+            <td>4.50%</td>
+        </tr>
+        <tr>
+            <td style="background-color: black;"></td>
+            <td style="background-color: black;"></td>
+            <td>13. Bread (Albany)</td>
+            <td>4.50%</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <i>Please refer to Appendix A (page 29) for calculation methodology.</i>
+    <br>
+</div>
+<div id="section32">
+    <div class="section-heading">3.2 Growth Incentive</div>
+    <table>
+        <tbody>
+        <tr>
+            <td>Definition: </td>
+            <td>An incentive scheme that rewards for the achievement of agreed Business Unit’s Net Invoiced Sales (NIS) ANNUAL growth hurdle targets at a Total National Sales level only. </td>
+        </tr>
+        <tr>
+            <td>Type: </td>
+            <td>
+                ☒ Unconditional     
+                ☐ Pay for Performance
+                ☐ V.A.S.
+                ☐ Efficiency
+            </td>
+        </tr>
+        <tr>
+            <td>Payment: </td>
+            <td>
+                ☒ Monthly           ☐ Quarterly               ☐ Annually <br>
+                <b>Note: </b>Payment will be made retrospectively by EFT at the end of the Fiscal year, once an assessment has been made and Conditions have been proven to be met. No deductions from statement allowed. (NOTE: it could take up to 2 months after year-end for the annual growth incentive to be paid).
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+
+
+    <b>Conditions: </b> <br>
+    • To qualify for the Growth Incentive, the Customer must achieve the minimum Growth Hurdle 1 target set for each of the respective BU’s, as outlined in the table contained in 3.2.1 below.<br>
+    • The table also illustrates additional Growth Hurdles, distributed across five targeted increments, which provide the Customer with the opportunity to earn incentive amounts.
+    <br>
+</div>
+</div>
+
+</body>
+
+<table>
+    <tbody>
+
+    </tbody>
+</table>
+
+</div>   
+</body>
+</html>
